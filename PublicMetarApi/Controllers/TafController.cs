@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace PublicMetarApi.Controllers
 {
@@ -7,6 +8,7 @@ namespace PublicMetarApi.Controllers
     public class TafController : ControllerBase
     {
         [HttpGet("{icao}")]
+        [Authorize]
         public ActionResult<string> Get(string icao)
         {
             return "value";
