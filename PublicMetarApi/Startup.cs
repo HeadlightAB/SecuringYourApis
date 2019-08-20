@@ -18,12 +18,19 @@ namespace PublicMetarApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+            services
+                .AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
                 .AddIdentityServerAuthentication(options =>
                 {
                     options.ApiName = "public.api";
                     options.Authority = "https://localhost:5001";
                 });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("public.api.read",
+                    builder => builder.RequireClaim("scope", "public.api.read"));
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

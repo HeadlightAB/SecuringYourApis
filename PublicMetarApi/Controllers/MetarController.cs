@@ -10,13 +10,17 @@ namespace PublicMetarApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new[]
+            {
+                "ESOE 201720Z 21010KT 9999 VCSH SCT055CB 18/10 Q1017",
+                "ESMQ 201720Z 22002KT 9999 FEW039CB 16/15 Q1020"
+            };
         }
 
         [HttpGet("{icao}")]
         public ActionResult<string> Get(string icao)
         {
-            return "value";
+            return "ESSA 201720Z 18010KT CAVOK 18/10 Q1016 NOSIG";
         }
     }
 }

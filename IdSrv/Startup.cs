@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +12,7 @@ namespace IdSrv
             services.AddIdentityServer(options => { options.IssuerUri = "https://idsv.weatherportal"; })
                 .AddDeveloperSigningCredential()
                 .AddInMemoryClients(IdStore.Clients)
-            .AddInMemoryApiResources(IdStore.ApiResources);
+                .AddInMemoryApiResources(IdStore.ApiResources);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
