@@ -11,6 +11,13 @@ namespace IdSrv
                 ClientId = "weatherTV",
                 ClientSecrets = new[] {new Secret("secret.password.for.weathertv".Sha256())},
                 AllowedGrantTypes = GrantTypes.ClientCredentials
+            },
+            new Client
+            {
+                AllowedScopes = new[] {"public.api.write"},
+                ClientId = "observerX",
+                ClientSecrets = new[] {new Secret("secret.password.for.observer".Sha256())},
+                AllowedGrantTypes = GrantTypes.ClientCredentials
             }
         };
 
